@@ -86,7 +86,9 @@ def create_collection(request: CreateCollectionRequest):
 #         )
 
 #     return collection.get_all_docs()
-
+@app.get("/health")
+async def health():
+    return {"status": "OK"}
 
 @app.post(
     "/collections/{collection_id}/documents", response_model=dict
